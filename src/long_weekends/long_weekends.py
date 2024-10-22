@@ -41,7 +41,7 @@ def spot_holiday_bridges(start: Union[str, date],
     # compute is_weekend
     is_weekend = dow.isin([5, 6])
     # compute is_holiday
-    is_holiday = dates.isin(holidays)
+    is_holiday = dates.isin(pd.DatetimeIndex(holidays.keys()))
     # compute union of weekends and holidays
     is_non_working = is_weekend | is_holiday
     # spot bridges
